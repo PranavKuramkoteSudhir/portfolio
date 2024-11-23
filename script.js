@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
   typeText();
 });
 
+// Floating Symbols
 document.addEventListener('DOMContentLoaded', function() {
   const container = document.getElementById('floating-symbols-container');
   const symbols = ['∑', '∫', '∂', 'π', '√', '∞', 'θ', 'λ', 'μ', 'σ', 'Ω'];
@@ -108,3 +109,146 @@ document.addEventListener('DOMContentLoaded', function() {
     createSymbol();
   }
 });
+
+// Project Carousel functionality
+let currentSlide = 0;
+let autoPlayInterval;
+let isAutoPlaying = true;
+
+document.addEventListener('DOMContentLoaded', function() {
+  const track = document.querySelector('.carousel-track');
+  const slides = document.querySelectorAll('.project-card');
+  const indicators = document.querySelectorAll('.carousel-indicator');
+  
+  function updateCarousel() {
+    // Calculate number of visible slides based on screen width
+    let slidesPerView = 3;
+    if (window.innerWidth <= 1200) slidesPerView = 2;
+    if (window.innerWidth <= 768) slidesPerView = 1;
+
+    // Calculate slide width based on visible slides
+    const slideWidth = 100 / slidesPerView;
+    
+    // Update slides width
+    slides.forEach(slide => {
+      slide.style.minWidth = `${slideWidth}%`;
+    });
+
+    // Update track position
+    track.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+    
+    // Update indicators
+    indicators.forEach((indicator, index) => {
+      indicator.classList.toggle('active', index === Math.floor(currentSlide));
+    });
+  }
+
+  // Initialize carousel
+  updateCarousel();
+
+  // Window resize handler
+  window.addEventListener('resize', updateCarousel);
+
+  // Add click handlers for indicators
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+      currentSlide = index;
+      updateCarousel();
+      resetAutoPlay();
+    });
+  });
+
+  // Auto-play functionality
+  function startAutoPlay() {
+    if (!isAutoPlaying) return;
+    autoPlayInterval = setInterval(() => {
+      moveCarousel(1);
+    }, 5000); // Change slides every 5 seconds
+  }
+
+  function stopAutoPlay() {
+    clearInterval(autoPlayInterval);
+  }
+
+  function resetAutoPlay() {
+    stopAutoPlay();
+    if (isAutoPlaying) {
+      startAutoPlay();
+    }
+  }
+
+  // Start autoplay
+  startAutoPlay();
+
+  // Pause on hover
+  const carouselContainer = document.querySelector('.carousel-container');
+  carouselContainer.addEventListener('mouseenter', () => {
+    isAutoPlaying = false;
+    stopAutoPlay();
+  });
+
+  carouselContainer.addEventListener('mouseleave', () => {
+    isAutoPlaying = true;
+    startAutoPlay();
+  });
+
+  // Touch event handling
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  carouselContainer.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    isAutoPlaying = false;
+    stopAutoPlay();
+  }, { passive: true });
+
+  carouselContainer.addEventListener('touchmove', (e) => {
+    touchEndX = e.touches[0].clientX;
+  }, { passive: true });
+
+  carouselContainer.addEventListener('touchend', () => {
+    const difference = touchStartX - touchEndX;
+    if (Math.abs(difference) > 50) { // Minimum swipe distance
+      if (difference > 0) {
+        moveCarousel(1); // Swipe left
+      } else {
+        moveCarousel(-1); // Swipe right
+      }
+    }
+    isAutoPlaying = true;
+    startAutoPlay();
+  });
+});
+
+// Function to move carousel
+function moveCarousel(direction) {
+  const track = document.querySelector('.carousel-track');
+  const slides = document.querySelectorAll('.project-card');
+  const indicators = document.querySelectorAll('.carousel-indicator');
+  
+  // Calculate number of visible slides based on screen width
+  let slidesPerView = 3;
+  if (window.innerWidth <= 1200) slidesPerView = 2;
+  if (window.innerWidth <= 768) slidesPerView = 1;
+
+  // Calculate maximum slide position (add 1 to allow seeing the last slide)
+  const maxSlide = (slides.length - slidesPerView) + 1;
+  
+  // Update current slide with bounds checking
+  const newPosition = currentSlide + direction;
+  
+  if (newPosition >= 0 && newPosition <= maxSlide) {
+    currentSlide = newPosition;
+  }
+  
+  // Calculate slide width based on visible slides
+  const slideWidth = (100 / slidesPerView)+2;
+  
+  // Update track position
+  track.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+  
+  // Update indicators
+  indicators.forEach((indicator, index) => {
+    indicator.classList.toggle('active', index === Math.floor(currentSlide));
+  });
+}
