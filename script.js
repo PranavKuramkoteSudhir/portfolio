@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Project Carousel functionality
 let currentSlide = 0;
 let autoPlayInterval;
-let isAutoPlaying = true;
+let isAutoPlaying = false; // Changed to false to prevent auto-sliding
 
 document.addEventListener('DOMContentLoaded', function() {
   const track = document.querySelector('.carousel-track');
@@ -154,59 +154,34 @@ document.addEventListener('DOMContentLoaded', function() {
     indicator.addEventListener('click', () => {
       currentSlide = index;
       updateCarousel();
-      resetAutoPlay();
     });
-  });
-
-  // Auto-play functionality
-  function startAutoPlay() {
-    if (!isAutoPlaying) return;
-    autoPlayInterval = setInterval(() => {
-      moveCarousel(1);
-    }, 5000); // Change slides every 5 seconds
-  }
-
-  function stopAutoPlay() {
-    clearInterval(autoPlayInterval);
-  }
-
-  function resetAutoPlay() {
-    stopAutoPlay();
-    if (isAutoPlaying) {
-      startAutoPlay();
-    }
-  }
-
-  // Start autoplay
-  startAutoPlay();
-
-  // Pause on hover
-  const carouselContainer = document.querySelector('.carousel-container');
-  carouselContainer.addEventListener('mouseenter', () => {
-    isAutoPlaying = false;
-    stopAutoPlay();
-  });
-
-  carouselContainer.addEventListener('mouseleave', () => {
-    isAutoPlaying = true;
-    startAutoPlay();
   });
 
   // Touch event handling
   let touchStartX = 0;
   let touchEndX = 0;
+  let isDragging = false;
+  
+  const carouselContainer = document.querySelector('.carousel-container');
 
   carouselContainer.addEventListener('touchstart', (e) => {
     touchStartX = e.touches[0].clientX;
-    isAutoPlaying = false;
-    stopAutoPlay();
+    isDragging = true;
   }, { passive: true });
 
   carouselContainer.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
     touchEndX = e.touches[0].clientX;
+    
+    // Calculate the distance moved
+    const diff = touchStartX - touchEndX;
+    
+    // Optional: Add some visual feedback during drag
+    track.style.transform = `translateX(calc(-${currentSlide * (100 / getSlidesPerView())}% - ${diff}px))`;
   }, { passive: true });
 
   carouselContainer.addEventListener('touchend', () => {
+    isDragging = false;
     const difference = touchStartX - touchEndX;
     if (Math.abs(difference) > 50) { // Minimum swipe distance
       if (difference > 0) {
@@ -214,10 +189,18 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         moveCarousel(-1); // Swipe right
       }
+    } else {
+      // Reset position if swipe wasn't long enough
+      updateCarousel();
     }
-    isAutoPlaying = true;
-    startAutoPlay();
   });
+
+  // Helper function to get current slides per view
+  function getSlidesPerView() {
+    if (window.innerWidth <= 768) return 1;
+    if (window.innerWidth <= 1200) return 2;
+    return 3;
+  }
 });
 
 // Function to move carousel

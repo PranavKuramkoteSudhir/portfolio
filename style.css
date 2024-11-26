@@ -445,41 +445,6 @@ article p {
   margin: 0.25rem 0;
 }
 
-/* PROJECTS SECTION */
-
-#projects {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-#projects .details-container {
-  width: calc(25% - 1rem);
-  min-width: 200px;
-  max-width: 300px;
-}
-
-.color-container {
-  border-color: rgb(92, 92, 92);
-  background: rgb(5, 5, 5);
-}
-
-.project-img {
-  border-radius: 2rem;
-  width: 90%;
-  height: 90%;
-}
-
-.project-title {
-  margin: 1rem;
-  color: white;
-  font-size: 1.25rem;
-}
-
-.project-btn {
-  color: white;
-  border-color: rgb(92, 92, 92);
-}
 
 /* CONTACT SECTION */
 
@@ -751,26 +716,51 @@ footer p {
 
 .carousel-track-container {
   overflow: hidden;
-  margin: 0 4rem;
+  margin: 0 1rem;
+  padding-right: 1rem;
 }
 
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
-  gap: 2rem;
+  gap: 0.5rem;
 }
 
 .project-card {
-  min-width: calc(33.333% - 1.33rem);
   background: rgb(5, 5, 5);
   border-radius: 2rem;
   border: rgb(92, 92, 92) 0.1rem solid;
   padding: 1.5rem;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
+}
+
+.project-img {
+  border-radius: 2rem;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.project-title {
+  margin: 1rem 0;
+  color: white;
+  font-size: 1.25rem;
+}
+
+.project-description {
+  color: rgb(170, 170, 170);
+  margin-top: 1rem;
+}
+
+.project-description p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 
 .carousel-button {
@@ -826,19 +816,28 @@ footer p {
   background: white;
 }
 
-/* Responsive adjustments */
 @media screen and (max-width: 1200px) {
   .project-card {
-    min-width: calc(50% - 1rem);
+      min-width: calc(50%);
+  }
+
+  .carousel-track-container {
+      margin: 0 1rem;
   }
 }
 
 @media screen and (max-width: 768px) {
   .project-card {
-    min-width: calc(100% - 1rem);
+      min-width: calc(100%);
   }
   
   .carousel-track-container {
-    margin: 0 3rem;
+      margin: 0 1rem;
+  }
+
+  .carousel-button {
+      width: 2.5rem;
+      height: 2.5rem;
+      font-size: 1.2rem;
   }
 }
