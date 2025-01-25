@@ -859,7 +859,7 @@ footer p {
 
 @media screen and (max-width: 500px) {
   body {
-      transform: scale(0.3);  
+      transform: scale(0.45);  
       transform-origin: top;
   }
 }
