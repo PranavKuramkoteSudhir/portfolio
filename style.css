@@ -841,3 +841,71 @@ footer p {
       font-size: 1.2rem;
   }
 }
+######################
+
+@media screen and (max-width: 700px) {
+  body {
+      transform: scale(0.9);  
+      transform-origin: top;  
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+      transform: scale(0.8);  
+      transform-origin: top;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body {
+      transform: scale(0.3);  
+      transform-origin: top;
+  }
+}
+@media screen and (max-width: 500px) {
+  .section__text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+  }
+
+  .section__text__p2, .title, .subtitle {
+      text-align: center;
+      margin: 0 auto;
+  }
+}
+@media screen and (max-width: 500px) {
+
+  .about-text-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin: 0 auto;
+      max-width: 90%; 
+  }
+
+  .about-text-content h2 {
+      font-size: 1.5rem; 
+      text-align: center;
+  }
+
+  .about-text-content p {
+      font-size: 1rem;
+      line-height: 1.5;
+      max-width: 100%;  
+      text-align: center;
+  }
+
+ 
+  .section-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
+}
