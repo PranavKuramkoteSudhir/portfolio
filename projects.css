@@ -1,0 +1,99 @@
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 10%;
+}
+
+.project-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background: black;
+    border: 1px solid white; /* Solid white border */
+    border-radius: 2rem;
+    padding: 20px;
+    text-align: center;
+    box-shadow: none;
+    transition: transform 0.3s ease-in-out; 
+}
+
+.project-panel:last-child {
+    margin-bottom: 0;
+}
+
+.project-panel:hover {
+    transform: scale(1.02);
+}
+
+.project-img {
+    width: 250px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.project-info {
+    flex: 1;
+    color: white;
+}
+
+.project-info h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.project-info p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+
+/* Ensure projects section takes full width */
+#projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 1024px) {
+    .project-panel {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .project-img {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 15px;
+    }
+
+    .btn-container {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .projects-container {
+        padding: 30px 5%;
+        margin-bottom: 80px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .projects-container {
+        margin-bottom: 60px;
+    }
+
+    .project-panel {
+        padding: 15px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 12px;
+    }
+}

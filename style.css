@@ -160,12 +160,12 @@ a:hover {
 
 section {
   padding-top: 4vh;
-  height: 96vh;
+  /* height: 96vh; removed */
   margin: 0 auto;
   box-sizing: border-box;
-  min-height: fit-content;
   max-width: 1200px;
 }
+
 
 .section-container {
   display: flex;
@@ -245,31 +245,19 @@ section {
 
 .btn-color-1,
 .btn-color-2 {
-  border: rgb(202, 202, 202) 0.1rem solid;
+  background: black;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;       
+  transition: all 0.3s ease;
 }
 
+/* Hover effect for both: flips to white bg, black text & border */
 .btn-color-1:hover,
 .btn-color-2:hover {
-  cursor: pointer;
-}
-
-.btn-color-1,
-.btn-color-2:hover {
-  background: rgb(202, 202, 202);
+  background: white;
   color: black;
-}
-
-.btn-color-1:hover {
-  background: rgb(255, 255, 255);
-}
-
-.btn-color-2 {
-  background: none;
-  color: white;
-}
-
-.btn-color-2:hover {
-  border: rgb(0, 0, 0) 0.1rem solid;
+  border: 1px solid white;
 }
 
 .btn-container {
@@ -452,7 +440,7 @@ article p {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 70vh;
+  min-height: 50vh; 
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -638,10 +626,6 @@ footer p {
 }
 
 @media screen and (max-width: 600px) {
-  #contact,
-  footer {
-    height: 40vh;
-  }
   #profile {
     height: 83vh;
     margin-bottom: 0;
@@ -705,144 +689,6 @@ footer p {
 
 }
 
-/* CAROUSEL STYLES */
-.carousel-container {
-  position: relative;
-  width: 100%;
-  max-width: 1200px;
-  margin: 2rem auto;
-  overflow: hidden;
-}
-
-.carousel-track-container {
-  overflow: hidden;
-  margin: 0 1rem;
-  padding-right: 1rem;
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  gap: 0.5rem;
-}
-
-.project-card {
-  background: rgb(5, 5, 5);
-  border-radius: 2rem;
-  border: rgb(92, 92, 92) 0.1rem solid;
-  padding: 1.5rem;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-}
-
-.project-img {
-  border-radius: 2rem;
-  width: 100%;
-  height: auto;
-  margin-bottom: 1rem;
-}
-
-.project-title {
-  margin: 1rem 0;
-  color: white;
-  font-size: 1.25rem;
-}
-
-.project-description {
-  color: rgb(170, 170, 170);
-  margin-top: 1rem;
-}
-
-.project-description p {
-  margin: 0.5rem 0;
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
-
-.carousel-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  cursor: pointer;
-  color: white;
-  font-size: 1.5rem;
-  transition: opacity 0.3s ease;
-  z-index: 2;
-}
-
-.carousel-button:disabled {
-  cursor: default;
-  opacity: 0.5;
-}
-
-.carousel-button:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.carousel-button.prev {
-  left: 0;
-}
-
-.carousel-button.next {
-  right: 0;
-}
-
-.carousel-nav {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
-
-.carousel-indicator {
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.carousel-indicator.active {
-  background: white;
-}
-
-@media screen and (max-width: 1200px) {
-  .project-card {
-      min-width: calc(50%);
-  }
-
-  .carousel-track-container {
-      margin: 0 1rem;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .project-card {
-      min-width: calc(100%);
-  }
-  
-  .carousel-track-container {
-      margin: 0 1rem;
-  }
-
-  .carousel-button {
-      width: 2.5rem;
-      height: 2.5rem;
-      font-size: 1.2rem;
-  }
-}
-######################
-
 @media screen and (max-width: 700px) {
   body {
       transform: scale(0.9);  
@@ -859,7 +705,7 @@ footer p {
 
 @media screen and (max-width: 500px) {
   body {
-      transform: scale(0.45);  
+      transform: scale(0.3);  
       transform-origin: top;
   }
 }
@@ -909,8 +755,11 @@ footer p {
       justify-content: center;
   }
 }
+
 @media screen and (max-width: 500px) {
   .cursor {
-      visibility: hidden; 
+      visibility: hidden; /* Makes the cursor invisible but keeps layout */
   }
 }
+
+
