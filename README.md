@@ -1,32 +1,72 @@
-# Personal Portfolio Website
+# Pranav Kuramkote Sudhir · Portfolio
 
-A modern, responsive personal portfolio website built to showcase my professional journey, skills, and projects. The website features a clean, user-friendly interface with smooth navigation and interactive elements.
+Personal portfolio site: **[www.pranavkuramkotesudhir.com](https://www.pranavkuramkotesudhir.com/)**
 
-## Features
+A multi-page static site with industry case studies, a GitHub repo showcase, an experience timeline, and a parallax sensor-chart hero. Every page is generated from one content file by a small Node script with **zero dependencies**, then served by GitHub Pages.
 
-- 🎯 Responsive design that works seamlessly across desktop and mobile devices
-- 🎨 Modern UI with hamburger menu for mobile navigation
-- 🔄 Interactive project carousel to showcase multiple projects
-- 💼 Detailed experience section highlighting professional journey
-- 🛠️ Skills section organized by category (Scripts, Tools, DevOps)
-- 📱 Contact section with direct links to email and LinkedIn
-- ⚡ Smooth scrolling and section transitions
-- 💻 Clean and maintainable code structure
+## Pages
 
-## Technologies Used
+| Path | What's there |
+| --- | --- |
+| `/` | Intro, results counted out in dots, selected work, GitHub preview |
+| `/work/` | Industry projects with type filters |
+| `/work/<project>/` | Case study: results, how it works, problem, build, stack |
+| `/repos/` | GitHub repos, plus open slots for upcoming ones |
+| `/experience/` | Timeline; each role links to its projects |
+| `/about/` | Story, education, certifications, skills |
+| `/contact/` | Email, LinkedIn, GitHub, LeetCode, resume |
 
-- HTML5
-- CSS3
-- JavaScript
-- Responsive Design Principles
+## Editing content
 
-## Sections
+All text lives in **`src/content.mjs`**: site details, projects, repos, jobs, skills, education and certifications.
 
-- **About**: Personal background and skill showcase
-- **Experience**: Timeline of professional experiences
-- **Projects**: Interactive carousel of recent projects
-- **Contact**: Professional contact information and social links
+```bash
+# 1. edit src/content.mjs
+npm run build     # regenerate the HTML pages
+npm run check     # check links, images, titles and alt text
+npm run serve     # preview at http://localhost:8000
+# 2. commit everything, including the regenerated pages
+```
 
-## Live Demo
+Node 18 or newer is all you need. There's nothing to install.
 
-[Portfolio Website](https://www.pranavkuramkotesudhir.com/)
+**Add a GitHub repo:** in `REPOS`, replace a `{ slot: true, ... }` entry with:
+
+```js
+{ name: 'repo-name', title: 'Readable title', lang: 'Python',
+  desc: 'One or two sentences on what it does.',
+  topics: ['rag', 'pyspark'],
+  url: 'https://github.com/PranavKuramkoteSudhir/repo-name',
+  demo: 'https://optional-live-demo.example',   // optional
+  img: 'assets/img/your-image.webp' }           // optional, 800×500 works well
+```
+
+**Add an industry project:** add an object to `PROJECTS` with a new `slug`. Its page appears at `/work/<slug>/` and in the Work menu automatically.
+
+**Update the resume:** replace `assets/PranavKuramkoteSudhir.pdf` (or change `site.resume`).
+
+## Project structure
+
+```
+src/content.mjs          ← all site content (edit this)
+src/templates.mjs        ← HTML for each page and component
+scripts/build.mjs        ← renders pages, 404, sitemap.xml, robots.txt
+scripts/check.mjs        ← link / asset / accessibility checks used by CI
+assets/css/site.css      ← design tokens (light + dark) and styles
+assets/js/site.js        ← menus, filters, parallax, hero chart
+assets/img/              ← photo and repo images
+index.html, work/, …     ← generated pages (committed, served by Pages)
+.github/workflows/       ← CI and deploy
+CNAME                    ← custom domain
+```
+
+## CI/CD
+
+- **`ci.yml`** runs on every push and pull request. It rebuilds the pages, fails if the committed output is out of date, and runs the link and asset checks.
+- **`deploy.yml`** runs on pushes to `main`. When **Settings → Pages → Source** is set to **GitHub Actions**, it builds into `_site/` and deploys to GitHub Pages. When the source is **Deploy from a branch**, it skips itself and Pages serves the committed pages from `main` directly, so the site works with either setting.
+
+The custom domain is kept in `CNAME`. If you switch the Pages source to GitHub Actions, confirm the domain is still set under Settings → Pages → Custom domain.
+
+## Design
+
+Mineral palette (cool mist ground, indigo, verdigris, plum and slate, with one ochre highlight), Bricolage Grotesque and Figtree type, and light and dark themes that follow the visitor's system setting. Parallax and animation switch off when the visitor has reduced motion turned on.

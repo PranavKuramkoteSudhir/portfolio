@@ -1,239 +1,155 @@
-<!DOCTYPE html>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pranav Kuramkote Sudhir</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pranav Kuramkote Sudhir · AI Engineer</title>
+<meta name="description" content="Pranav Kuramkote Sudhir is an AI engineer building RAG assistants, LLM agents and predictive models on real plant data.">
+<link rel="canonical" href="https://www.pranavkuramkotesudhir.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pranav Kuramkote Sudhir · AI Engineer">
+<meta property="og:description" content="Pranav Kuramkote Sudhir is an AI engineer building RAG assistants, LLM agents and predictive models on real plant data.">
+<meta property="og:url" content="https://www.pranavkuramkotesudhir.com/">
+<meta property="og:image" content="https://www.pranavkuramkotesudhir.com/assets/img/profile.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#EEF1F1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111518" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="./assets/css/site.css">
 </head>
 <body>
-    <div id="floating-symbols-container"></div>
-
-    <nav id="desktop-nav">
-        <div class="logo">Pranav Kuramkote Sudhir</div>
-        <div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="name" href="./">Pranav K. Sudhir <small>AI Engineer</small></a>
+    <nav class="links" aria-label="Primary">
+      <a href="./" class="on" aria-current="page">Home</a>
+      <div class="dd">
+        <button type="button" aria-expanded="false" aria-haspopup="true">Work <svg class="chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="menu">
+          <span class="cap" style="display:block">Industry projects</span>
+          <a href="./work/plant-knowledge-assistant/"><i class="dot" style="background:var(--c1)"></i><span><b>Plant knowledge assistant</b><span class="t">Mercedes-Benz</span></span></a>
+          <a href="./work/plant-agents/"><i class="dot" style="background:var(--c2)"></i><span><b>Tool-calling plant agents</b><span class="t">Mercedes-Benz</span></span></a>
+          <a href="./work/predictive-maintenance/"><i class="dot" style="background:var(--c3)"></i><span><b>Predictive maintenance</b><span class="t">Mercedes-Benz · Veeco</span></span></a>
+          <a href="./work/plant-lakehouse/"><i class="dot" style="background:var(--c4)"></i><span><b>Plant lakehouse</b><span class="t">Mercedes-Benz</span></span></a>
+          <a href="./work/cloud-data-pipelines/"><i class="dot" style="background:var(--c4)"></i><span><b>Cloud data pipelines</b><span class="t">HCL Technologies</span></span></a>
+          <div class="sep"></div>
+          <a href="./work/"><i class="dot" style="background:var(--ink)"></i><span><b>All industry projects</b></span></a>
+          <a href="./repos/"><i class="dot" style="background:transparent;box-shadow:inset 0 0 0 1.5px var(--ink)"></i><span><b>GitHub repos</b><span class="t">Open-source work</span></span></a>
         </div>
+      </div>
+      <div class="dd">
+        <button type="button" aria-expanded="false" aria-haspopup="true">About <svg class="chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <div class="menu">
+          <a href="./about/"><i class="dot" style="background:var(--c1)"></i><span><b>Story</b><span class="t">Mechanical engineer to AI engineer, plus education</span></span></a>
+          <a href="./experience/"><i class="dot" style="background:var(--c2)"></i><span><b>Experience</b><span class="t">Mercedes-Benz, Veeco, HCL, Quest Global</span></span></a>
+          <a href="./about/#skills"><i class="dot" style="background:var(--c3)"></i><span><b>Skills</b><span class="t">Grouped by the kind of work</span></span></a>
+        </div>
+      </div>
+      <a href="./contact/" class="hire">Get in touch</a>
     </nav>
+  </div>
+</header>
 
-    <nav id="hamburger-nav">
-        <div class="logo">Pranav Kuramkote Sudhir</div>
-        <div class="hamburger-menu">
-            <div class="hamburger-icon" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="menu-links">
-                <li><a href="#about" onclick="toggleMenu()">About</a></li>
-                <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-                <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-            </div>
-        </div>
-    </nav>
+<main id="main" tabindex="-1">
+<section class="hero" style="padding:0">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="copy">
+      <span class="status"><i class="dot" style="background:var(--c1)"></i>Open to AI engineering roles · relocating</span>
+      <h1>Data that keeps <em>the line</em> moving.</h1>
+      <p class="lede">I’m Pranav, an AI engineer who builds RAG assistants, LLM agents and predictive models on real plant data, most recently at Mercedes-Benz and Veeco.</p>
+      <div class="btns"><a class="btn solid" href="./work/">See the work <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a><a class="btn" href="./repos/">GitHub repos</a></div>
+    </div>
+    <div class="visual">
+      <figure class="portrait" data-speed="-0.05"><picture><source srcset="./assets/img/profile.webp" type="image/webp"><img src="./assets/img/profile.jpg" alt="Portrait of Pranav Kuramkote Sudhir" width="720" height="900" fetchpriority="high"></picture></figure>
+      <div class="nowcard" data-speed="0.06"><b>Now at Mercedes-Benz</b><span>Vance, AL · open to relocation</span></div>
+    </div>
+  </div>
+  <div class="note" aria-hidden="true"><span><i class="dot" style="background:var(--c3)"></i>Line-sensor readings</span><span><i class="dot" style="background:var(--hi)"></i>Flagged 6 h early</span></div>
+</section>
 
-    <section id="profile">
-        <div class="section__pic-container">
-            <img src="./assets/profile-pic.png" alt="Pranav Kuramkote Sudhir profile picture" />
-        </div>
-        <div class="section__text">
-            <div class="typing-container">
-                <div id="typing-text"></div>
-                <span class="cursor"></span>
-            </div>
-            <div class="btn-container">
-                
-                <button class="btn btn-color-1" onclick="location.href='./#contact'">Contact Info</button>
-                <button class="btn btn-color-2" onclick="window.open('https://portfolio-bot-seven.vercel.app', '_blank')">Chat with me</button>
-            </div>
-            <div id="socials-container">
-                <img 
-                    src="./assets/linkedin.png" 
-                    alt="My LinkedIn profile" 
-                    class="icon" 
-                    onclick="location.href='https://www.linkedin.com/in/pranav-kuramkote-sudhir-a46359168/'"
-                />
-                <img 
-                    src="./assets/github.png" 
-                    alt="My Github profile" 
-                    class="icon" 
-                    onclick="location.href='https://github.com/PranavKuramkoteSudhir'"
-                />
-                <img 
-                    src="./assets/leetcode.png" 
-                    alt="My Leetcode profile" 
-                    class="icon" 
-                    onclick="location.href='https://leetcode.com/u/PranavKuramkoteSudhir/'"
-                />
-            </div>
-        </div>
-    </section>
+<section><div class="wrap"><div class="impact">
+  <div class="top-row"><h2>Four results, counted out.</h2><span class="cap">One dot = 5% unless noted</span></div>
+  <div class="units">
+    <div class="unit"><b>200+</b><div class="grid" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><span class="key">1 dot = 10 people</span><p>Engineers and technicians using the plant assistant</p></div>
+    <div class="unit"><b>85%</b><div class="grid" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div><span class="key">17 of 20 accepted</span><p>Answer acceptance on the RAG assistant</p></div>
+    <div class="unit"><b>−15%</b><div class="grid" aria-hidden="true"><i class="off"></i><i class="off"></i><i class="off"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><span class="key">3 of 20 removed</span><p>Unplanned downtime on pilot lines</p></div>
+    <div class="unit"><b>6 h</b><div class="grid" aria-hidden="true"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class="hi"></i><i class="hi"></i><i class="hi"></i><i class="hi"></i><i class="hi"></i><i class="hi"></i></div><span class="key">1 dot = 1 hour</span><p>Earlier drift warning than static alarms</p></div>
+  </div>
+</div></div></section>
 
-    <section id="about">
-        <p class="section__text__p1">Get To Know More</p>
-        <h1 class="title">About Me</h1>
-        <div class="section-container">
-            <div class="section__pic-container text-container">
-                <div class="about-text-content">
-                    <h2>My Background</h2>
-                    <p>
-                       I'm a Data engineer with extensive experience building enterprise-scale data solutions, having recently completed my Master's in Data Analytics from Northeastern University. I specialize in designing ETL pipelines, data warehouses, and lakehouse architectures across Snowflake, Databricks, and AWS, with expertise in real-time streaming and machine learning in production. I orchestrate pipelines processing millions of records daily while ensuring strict compliance standards, accelerating insights delivery by 50% and improving data accuracy by 30%. My work spans migrating legacy systems to cloud-native architectures, reducing query times by 45% and infrastructure costs by 30% across healthcare and enterprise domains. I'm passionate about making data accessible through self-service analytics platforms and federated data lakes that drive real business value while maintaining the highest standards of data governance and security.
-                    </p>
-                </div>
-            </div>
-            <div class="about-details-container">
-                <div class="details-container">
-                  <h3>Scripts</h3>
-                  <div class="skill-images">
-                        <img src="./assets/skill1.png" alt="Skill 1" class="skill-icon" title="Python">
-                        <img src="./assets/skill2.png" alt="Skill 2" class="skill-icon" title="SQL">
-                        <img src="./assets/react.png" alt="React" class="skill-icon" title="react">
-                        <img src="./assets/node.webp" alt="Node.js" class="skill-icon" title="node">
-                        <img src="./assets/skill4.png" alt="Skill 4" class="skill-icon" title="C++">
-                        <img src="./assets/skill5.png" alt="Skill 5" class="skill-icon" title="html">
-                    </div>
-                </div>
-            
-                <div class="details-container">
-                    <h3>Tools</h3>
-                    <div class="skill-images">
-                        <img src="./assets/skill6.png" alt="Skill 6" class="skill-icon" title="pandas">
-                        <img src="./assets/skill7.png" alt="Skill 7" class="skill-icon" title="Tensor-flow">
-                        <img src="./assets/skill8.png" alt="Skill 8" class="skill-icon" title="SK learn">
-                        <img src="./assets/skill9.png" alt="Skill 9" class="skill-icon" title="Pyspark">
-                        <img src="./assets/skill10.png" alt="Skill 10" class="skill-icon" title="Tableau">
-                    </div>
-                </div>
-            
-                <div class="details-container">
-                    <h3>DevOps</h3>
-                    <div class="skill-images">
-                        <img src="./assets/skill12.png" alt="Skill 12" class="skill-icon" title="AWS">
-                        <img src="./assets/Azure.jpg" alt="Azure" class="skill-icon" title="Azure">
-                        <img src="./assets/gcp.png" alt="GCP" class="skill-icon" title="GCP">
-                        <img src="./assets/skill13.png" alt="Skill 13" class="skill-icon" title="git">
-                        <img src="./assets/skill15.png" alt="Skill 15" class="skill-icon" title="airflow">
-                        <img src="./assets/skill16.png" alt="Skill 16" class="skill-icon" title="jira">
-                        <img src="./assets/skill14.png" alt="Skill 14" class="skill-icon" title="kafka">
-                        <img src="./assets/Docker.avif" alt="Skill 14" class="skill-icon" title="Docker">
-                        <img src="./assets/kubernetes.png" alt="Skill 14" class="skill-icon" title="Kubernetes">
-                    </div>
-                </div>
-            </div>            
-        </div>
-        <img 
-            src="./assets/arrow.png" 
-            alt="Arrow icon" 
-            class="icon arrow" 
-            onclick="location.href='./#experience'"
-        />
-    </section>
+<section style="padding-top:8px"><div class="wrap">
+  <div class="head"><div><span class="cap">Industry projects</span><h2>Selected work</h2></div><a class="more" href="./work/">All projects <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a></div>
+  <div class="cards"><a class="card" href="./work/plant-knowledge-assistant/" data-cat="genai">
+  <div class="meta"><span class="tag"><i class="dot" style="background:var(--c1)"></i>GenAI</span><span class="where">Mercedes-Benz</span></div><span class="arrow"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+  <div class="dots-motif" style="color:var(--c1)" aria-hidden="true"><i style="height:11.8px"></i><i style="height:17px"></i><i style="height:14.4px"></i><i style="height:22.2px"></i><i style="height:19.6px"></i><i style="height:27.400000000000002px"></i><i style="height:24.8px"></i><i style="height:32.6px"></i><i style="height:30px"></i><i style="height:35.2px"></i></div><h3>Plant knowledge assistant</h3><p>Plain-English questions, cited answers from SOPs, maintenance manuals and quality reports in seconds.</p>
+  <div class="res"><b>85%</b><span>answer acceptance from 200+ engineers</span></div>
+</a>
+<a class="card" href="./work/plant-agents/" data-cat="agents">
+  <div class="meta"><span class="tag"><i class="dot" style="background:var(--c2)"></i>Agents</span><span class="where">Mercedes-Benz</span></div><span class="arrow"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+  <div class="dots-motif" style="color:var(--c2)" aria-hidden="true"><i style="height:14.4px"></i><i style="height:14.4px"></i><i style="height:19.6px"></i><i style="height:17px"></i><i style="height:24.8px"></i><i style="height:22.2px"></i><i style="height:27.400000000000002px"></i><i style="height:27.400000000000002px"></i><i style="height:32.6px"></i><i style="height:35.2px"></i></div><h3>Tool-calling plant agents</h3><p>Agents that turn requests into SQL, refresh dashboards, and raise alerts or tickets, with a person approving each action.</p>
+  <div class="res"><b>5 shops</b><span>in the phased rollout</span></div>
+</a>
+<a class="card" href="./work/predictive-maintenance/" data-cat="ml">
+  <div class="meta"><span class="tag"><i class="dot" style="background:var(--c3)"></i>ML</span><span class="where">Mercedes-Benz · Veeco</span></div><span class="arrow"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+  <div class="dots-motif" style="color:var(--c3)" aria-hidden="true"><i style="height:19.6px"></i><i style="height:17px"></i><i style="height:19.6px"></i><i style="height:22.2px"></i><i style="height:17px"></i><i style="height:19.6px"></i><i style="height:35.2px"></i><i style="height:19.6px"></i><i style="height:17px"></i><i style="height:19.6px"></i></div><h3>Predictive maintenance</h3><p>Anomaly detection and failure prediction on sensor time series, wired to alerts and work orders.</p>
+  <div class="res"><b>−15%</b><span>unplanned downtime on pilot lines</span></div>
+</a>
+<a class="card" href="./work/plant-lakehouse/" data-cat="data">
+  <div class="meta"><span class="tag"><i class="dot" style="background:var(--c4)"></i>Data platform</span><span class="where">Mercedes-Benz</span></div><span class="arrow"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+  <div class="dots-motif" style="color:var(--c4)" aria-hidden="true"><i style="height:30px"></i><i style="height:27.400000000000002px"></i><i style="height:24.8px"></i><i style="height:22.2px"></i><i style="height:19.6px"></i><i style="height:17px"></i><i style="height:14.4px"></i><i style="height:11.8px"></i><i style="height:9.2px"></i><i style="height:9.2px"></i></div><h3>Plant lakehouse</h3><p>MES, SAP, quality inspection and line-sensor data in one Azure Databricks lakehouse.</p>
+  <div class="res"><b>10+ → 1</b><span>data sources in one governed lakehouse</span></div>
+</a></div>
+</div></section>
 
-    <section id="experience">
-        <p class="section__text__p1">Explore My</p>
-        <h1 class="title">Experience</h1>
-        <div class="experience-details-container">
-            <div class="about-containers">
-                <div class="details-container">
-                    <img src="./assets/worksmart-vector-logo.png" alt="Quest Global Engineering Logo" class="company-logo">
-                    <h2 class="experience-sub-title">Software Engineer</h2>
-                    <div class="article-container">
-                        <h3>Worksmart Technologies</h3>
-                        <p>Aug 2018 - Jan 2021</p>
-                        <p>Bangalore, India</p>
-                    </div>
-                </div>
-                <div class="details-container">
-                    <img src="./assets/hcl_technologies.png" alt="HCL Technologies Logo" class="company-logo">
-                    <h2 class="experience-sub-title">Member Technical Staff</h2>
-                    <div class="article-container">
-                        <h3>HCL Technologies</h3>
-                        <p>Feb 2021 - Jul 2023</p>
-                        <p>Bangalore, India</p>
-                    </div>
-                </div>
-                <div class="details-container">
-                    <img src="./assets/veeco_instrument.png" alt="Veeco Instrument Logo" class="company-logo">
-                    <h2 class="experience-sub-title">Data Scientist</h2>
-                    <div class="article-container">
-                        <h3>Veeco Instrument</h3>
-                        <p>Jul 2024 - Dec 2024</p>
-                        <p>San Jose, California</p>
-                    </div>
-                </div>
-                <div class="details-container">
-                    <img src="./assets/united-health-group.png" alt="United Health Group logo" class="company-logo">
-                    <h2 class="experience-sub-title">Data analyst</h2>
-                    <div class="article-container">
-                        <h3>United Health Group</h3>
-                        <p>Jan 2025 - current</p>
-                        <p>Boston United states</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <img 
-            src="./assets/arrow.png" 
-            alt="Arrow icon" 
-            class="icon arrow" 
-            onclick="location.href='./#projects'"
-        />
-    </section>
+<section style="padding-top:8px"><div class="wrap">
+  <div class="head"><div><span class="cap">Open source</span><h2>On GitHub</h2></div><a class="more" href="./repos/">All repos <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a></div>
+  <div class="repos"><article class="repo filled">
+  <a class="thumb" href="https://github.com/PranavKuramkoteSudhir/mail_classifiaction" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="./assets/img/repo-mail-transformer.webp" alt="" width="800" height="500" loading="lazy"></a>
+  <div class="rhead"><span class="slot">Repo 01 · mail_classifiaction</span></div>
+  <h3><a href="https://github.com/PranavKuramkoteSudhir/mail_classifiaction" target="_blank" rel="noopener">GPT-style transformer from scratch</a></h3>
+  <p>A decoder-only transformer in NumPy and core Python: multi-head attention, layer norm and greedy decoding, trained on email to draft replies and summaries.</p>
+  <div class="topics"><span>transformers</span><span>numpy</span><span>llm</span></div>
+  <div class="rfoot"><span><i class="dot" style="background:var(--c1)"></i>Python</span><span class="ractions"><a href="https://github.com/PranavKuramkoteSudhir/mail_classifiaction" target="_blank" rel="noopener">Code ↗</a></span></div>
+</article>
+<article class="repo filled">
+  <a class="thumb" href="https://github.com/PranavKuramkoteSudhir/Toxic-comments-analysis" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="./assets/img/repo-toxic-comments.webp" alt="" width="800" height="500" loading="lazy"></a>
+  <div class="rhead"><span class="slot">Repo 02 · Toxic-comments-analysis</span></div>
+  <h3><a href="https://github.com/PranavKuramkoteSudhir/Toxic-comments-analysis" target="_blank" rel="noopener">Toxic comment classifier</a></h3>
+  <p>Multi-label NLP model on the Jigsaw dataset that flags six kinds of toxicity, served through a Flask API in Docker.</p>
+  <div class="topics"><span>nlp</span><span>lstm</span><span>flask</span><span>docker</span></div>
+  <div class="rfoot"><span><i class="dot" style="background:var(--c1)"></i>Python</span><span class="ractions"><a href="https://github.com/PranavKuramkoteSudhir/Toxic-comments-analysis" target="_blank" rel="noopener">Code ↗</a><a href="https://toxic-comments-analysis.onrender.com/" target="_blank" rel="noopener">Live demo ↗</a></span></div>
+</article>
+<article class="repo filled">
+  <a class="thumb" href="https://github.com/PranavKuramkoteSudhir/portfolio" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="./assets/img/repo-portfolio.webp" alt="" width="800" height="500" loading="lazy"></a>
+  <div class="rhead"><span class="slot">Repo 03 · portfolio</span></div>
+  <h3><a href="https://github.com/PranavKuramkoteSudhir/portfolio" target="_blank" rel="noopener">This website</a></h3>
+  <p>A dependency-free static site generator in Node that builds every page from one content file, with CI checks and deploys through GitHub Actions.</p>
+  <div class="topics"><span>static-site</span><span>github-actions</span><span>github-pages</span></div>
+  <div class="rfoot"><span><i class="dot" style="background:var(--c1)"></i>JavaScript</span><span class="ractions"><a href="https://github.com/PranavKuramkoteSudhir/portfolio" target="_blank" rel="noopener">Code ↗</a></span></div>
+</article></div>
+</div></section>
+</main>
 
-    <section id="projects">
-        <div id="projects-section"></div>
-    </section>
-    
-    <script>
-        fetch('projects.html')
-            .then(response => response.text())
-            .then(data => document.getElementById('projects-section').innerHTML = data);
-    </script>
-    
-    <section id="contact">
-        <p class="section__text__p1">Get in Touch</p>
-        <h1 class="title">Contact Me</h1>
-        <div class="contact-info-upper-container">
-            <div class="contact-info-container">
-                <img 
-                    src="./assets/email.png" 
-                    alt="Email icon" 
-                    class="icon contact-icon email-icon"
-                />
-                <p>pranavkuramkotesudhir@gmail.com</p>
-            </div>
-            <div class="contact-info-container">
-                <img 
-                    src="./assets/linkedin.png" 
-                    alt="LinkedIn icon" 
-                    class="icon contact-icon"
-                />
-                <p><a href="https://www.linkedin.com/in/pranav-kuramkote-sudhir-a46359168/">LinkedIn</a></p>
-            </div>
-        </div>
-    </section>
+<footer>
+  <div class="wrap">
+    <span>© <span data-year>2026</span> Pranav Kuramkote Sudhir</span>
+    <span class="foot-links"><a href="https://github.com/PranavKuramkoteSudhir" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/pranav-kuramkote-sudhir-a46359168/" target="_blank" rel="noopener">LinkedIn</a><a href="https://leetcode.com/u/PranavKuramkoteSudhir/" target="_blank" rel="noopener">LeetCode</a><a href="./assets/PranavKuramkoteSudhir.pdf" target="_blank" rel="noopener">Resume</a></span>
+  </div>
+</footer>
 
-    <footer>
-        <nav>
-            <div class="nav-links-container">
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
-        <p>Copyright © 2023 Pranav Kuramkote Sudhir. All Rights Reserved.</p>
-    </footer>
+<nav class="tabbar" aria-label="Sections">
+  <a href="./" class="on" aria-current="page"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9l7-6 7 6v8H3z"/></svg>Home</a>
+  <a href="./work/"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="6" width="14" height="11" rx="2"/><path d="M7 6V4h6v2"/></svg>Work</a>
+  <a href="./repos/"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 6l-4 4 4 4M13 6l4 4-4 4"/></svg>Repos</a>
+  <a href="./about/"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="7" r="3.2"/><path d="M3.5 17c1.2-3 3.6-4.5 6.5-4.5s5.3 1.5 6.5 4.5"/></svg>About</a>
+  <a href="./contact/"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="2"/><path d="M3 5.5l7 5.5 7-5.5"/></svg>Contact</a>
+</nav>
 
-    <script src="script.js"></script>
+<script src="./assets/js/site.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,71 @@
+name: Deploy to GitHub Pages
+
+# Builds the site into _site/ and publishes it with GitHub Pages.
+#
+# Works with either Pages setting (Settings → Pages → Build and deployment → Source):
+#   • "GitHub Actions"        → this workflow deploys the site.
+#   • "Deploy from a branch"  → this workflow skips itself; GitHub serves the
+#                                committed pages from the root of main as before.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      mode: ${{ steps.mode.outputs.mode }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read the Pages source setting
+        id: mode
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mode=$(gh api "repos/${{ github.repository }}/pages" --jq .build_type 2>/dev/null || echo unknown)
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"
+          if [ "$mode" != "workflow" ]; then
+            echo "::notice::Pages source is '$mode', not 'GitHub Actions'. Skipping deploy; the committed pages on main are served directly."
+          fi
+
+      - uses: actions/setup-node@v4
+        if: steps.mode.outputs.mode == 'workflow'
+        with:
+          node-version: 20
+
+      - name: Build site into _site
+        if: steps.mode.outputs.mode == 'workflow'
+        run: |
+          node scripts/build.mjs --out=_site
+          node scripts/check.mjs _site
+
+      - uses: actions/configure-pages@v5
+        if: steps.mode.outputs.mode == 'workflow'
+
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.mode.outputs.mode == 'workflow'
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    if: needs.build.outputs.mode == 'workflow'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

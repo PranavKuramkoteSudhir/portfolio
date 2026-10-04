@@ -1,0 +1,40 @@
+name: CI
+
+# Runs on every push and pull request.
+# 1. Rebuilds the site and fails if the committed pages are out of date
+#    (so you never forget to run `npm run build` after editing src/content.mjs).
+# 2. Checks every page for broken links, missing images, titles and alt text.
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build pages from src/content.mjs
+        run: node scripts/build.mjs
+
+      - name: Committed pages match the build
+        run: |
+          changes=$(git status --porcelain)
+          if [ -n "$changes" ]; then
+            echo "$changes"
+            echo "::error::Generated pages are out of date. Run 'npm run build' and commit the result."
+            exit 1
+          fi
+
+      - name: Check links, assets and page basics
+        run: node scripts/check.mjs
