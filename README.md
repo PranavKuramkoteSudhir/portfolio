@@ -62,10 +62,11 @@ CNAME                    ← custom domain
 
 ## CI/CD
 
-- **`ci.yml`** runs on every push and pull request. It rebuilds the pages, fails if the committed output is out of date, and runs the link and asset checks.
-- **`deploy.yml`** runs on pushes to `main`. When **Settings → Pages → Source** is set to **GitHub Actions**, it builds into `_site/` and deploys to GitHub Pages. When the source is **Deploy from a branch**, it skips itself and Pages serves the committed pages from `main` directly, so the site works with either setting.
+- **`ci.yml`** runs on every push and pull request. It rebuilds the committed pages, checks links and assets, and validates the Vercel output directory.
+- Vercel is the production host. **`vercel.json`** builds the static site into `public/`; the linked Vercel project deploys pushes to `main`.
+- **`deploy.yml`** is an optional GitHub Pages workflow. Its deploy job runs only when Pages is enabled with **GitHub Actions** as the source; it is not used for the current Vercel-hosted domain.
 
-The custom domain is kept in `CNAME`. If you switch the Pages source to GitHub Actions, confirm the domain is still set under Settings → Pages → Custom domain.
+The custom domain is configured in Vercel. `CNAME` is only needed if you switch hosting to GitHub Pages.
 
 ## Design
 

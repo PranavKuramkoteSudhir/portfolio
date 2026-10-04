@@ -5,7 +5,7 @@
   "description": "Personal portfolio of Pranav Kuramkote Sudhir, built as static pages from one content file.",
   "type": "module",
   "engines": {
-    "node": ">=18"
+    "node": "24.x"
   },
   "scripts": {
     "build": "node scripts/build.mjs",

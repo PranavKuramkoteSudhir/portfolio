@@ -43,7 +43,7 @@ jobs:
       - uses: actions/setup-node@v4
         if: steps.mode.outputs.mode == 'workflow'
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Build site into _site
         if: steps.mode.outputs.mode == 'workflow'

@@ -22,7 +22,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Build pages from src/content.mjs
         run: node scripts/build.mjs
@@ -38,3 +38,8 @@ jobs:
 
       - name: Check links, assets and page basics
         run: node scripts/check.mjs
+
+      - name: Build and check Vercel output
+        run: |
+          node scripts/build.mjs --out=public
+          node scripts/check.mjs public
